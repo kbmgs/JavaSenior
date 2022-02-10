@@ -36,7 +36,7 @@ class Window1 implements Runnable {
     @Override
     public void run() {
         while (true) {
-            synchronized (this) {//此时this为Window1的对象w，唯一
+            synchronized (this) {//此时this为Window1的当前对象 w（唯一）
                 if (ticket > 0) {
                     try {
                         Thread.sleep(100);  // 没有锁时，会出现0，-1号
@@ -55,6 +55,7 @@ class Window1 implements Runnable {
 
 public class WindowTest1 {
     public static void main(String[] args) {
+        //继承了Runnable接口的类Window1的实例对象
         Window1 w = new Window1();
 
         //一个对象放到三个进程中运行，为同一个ticket，不需要加static

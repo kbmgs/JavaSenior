@@ -6,15 +6,13 @@ package com.atguigu.java;
  * @description: 使用同步代码块解决继承Thread类的线程安全问题
  *               例子，创建三个窗口卖票。总票数为100张。使用继承Thread类的方式。
  *
- *
- *
  * @author kbmgs
  * @date 2022/2/2 17:31
  */
 
 class Window2 extends Thread {
     private static int ticket = 100;
-    private static Object obj = new Object(); //需加static静态，使之唯一
+    private static Object obj = new Object(); //需加static静态，使之对于3个Window2的对象都唯一
 
     @Override
     public void run() {
